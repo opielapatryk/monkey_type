@@ -27,7 +27,7 @@ def timeout_message():
     popup = Toplevel()
     popup.title("Timeout")
     popup.geometry("{}x{}+{}+{}".format(300, 100, x_cordinate+450, y_cordinate+400))
-    popup_label = Label(popup, text="Time's up!", font=("Arial", 20))
+    popup_label = Label(popup, text=f"Time's up! \nPoints: {points}", font=("Arial", 20))
     popup_label.pack()
     popup.focus_set()
     
@@ -63,10 +63,9 @@ def start():
         if char == i:
             points = points + 1
             text_widget.tag_config("here", foreground="green")
-            # works for evey char
-
             """Make char green"""
         else:
+            text_widget.tag_config("here", foreground="red")
             """Make char red"""
     
 
@@ -77,7 +76,7 @@ def start():
     
 
 """bind start button"""
-start_button = Button(text="Start", font=("Arial",30),command=start)
+start_button = Button(text="Start", font=("Arial",20),command=start)
 start_button.pack()
 
 
